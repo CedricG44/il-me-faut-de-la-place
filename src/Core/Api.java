@@ -123,4 +123,9 @@ public class Api {
             hashChilds(childNode ,hashMap, hashManager);
         }
     }
+
+    public void setCustomTree(String racine) {
+        
+        this.customTree = CustomTreeFactory.create(racine);
+    }
 }

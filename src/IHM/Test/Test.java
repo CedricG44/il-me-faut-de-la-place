@@ -15,11 +15,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Test extends JFrame {
-    private static String path = "D:\\test";
+    private static String path = "D:\\Users\\Cédric\\Downloads";
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         mainTest();
-    }
+    }*/
 
     public static void mainTest(){
         JFrame frame = new JFrame("Il me faut de la place - TEST");
@@ -34,13 +34,13 @@ public class Test extends JFrame {
 
         //Récupération des doublons
         debut = System.currentTimeMillis();
-        HashMap<String, ArrayList<File>> doublons = api.getDoublons();
+        //HashMap<String, ArrayList<File>> doublons = api.getDoublons();
         System.out.println("Temps de récupération des doublons : " + (System.currentTimeMillis() - debut));
         System.out.println("******************************************************");
 
         //Deuxieme récupération des doublons (pour tester l'efficacité du cache)
         debut = System.currentTimeMillis();
-        doublons = api.getDoublons();
+        //doublons = api.getDoublons();
         System.out.println("Temps de récupération (2e fois) des doublons : " + (System.currentTimeMillis() - debut));
         System.out.println("******************************************************");
 

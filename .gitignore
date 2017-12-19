@@ -5,3 +5,5 @@ src/IHM/FenetrePrincipale/MainWindow_PROTO.java
 src/IHM/FenetrePrincipale/MainWindow_PROTO.form
 src/IHM/FenetreFiltres/FiltreWindow_PROTO.java
 src/IHM/FenetreFiltres/FiltreWindow_PROTO.form
+src/IHM/FenetreDoublons/DoublonsWindow_PROTO.form
+src/IHM/FenetreDoublons/DoublonsWindow_PROTO.java

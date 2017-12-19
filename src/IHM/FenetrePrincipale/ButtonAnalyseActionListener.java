@@ -26,6 +26,8 @@ public class ButtonAnalyseActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
+        
+        tree.clearSelection();
         File file = new File(txtFieldPath.getText());
         if(file.exists() && file.isDirectory()) {
             api.setCustomTree(txtFieldPath.getText());

@@ -22,21 +22,21 @@ public class TreeListener implements TreeSelectionListener {
     private JTree tree;
     private JTable table;
     
-    public TreeListener(JTable table) {
+    public TreeListener(JTree tree, JTable table) {
         
+        this.tree = tree;
         this.table = table;
     }
     
     @Override
     public void valueChanged(TreeSelectionEvent e) {
         
-        tree = (JTree)e.getSource();
         DefaultTableModel tableModel = (DefaultTableModel)table.getModel();
         for (int i = tableModel.getRowCount() - 1; i > -1; i--) {
                 tableModel.removeRow(i);
             }
         DefaultMutableTreeNode node = (DefaultMutableTreeNode)tree.getLastSelectedPathComponent();
-        if(node.getUserObject().getClass() == DirectoryNode.class) {
+        if((node != null) && (node.getUserObject().getClass() == DirectoryNode.class)) {
             DirectoryNode directoryNode = (DirectoryNode)node.getUserObject();
             ArrayList<Node> listFiles = directoryNode.getChilds();
             for(int i = 0; i < listFiles.size(); i++) {

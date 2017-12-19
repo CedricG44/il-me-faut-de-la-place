@@ -1,4 +1,4 @@
-package IHM;
+package IHM.FenetrePrincipale;
 
 import Core.DirectoryNode;
 import java.awt.Component;

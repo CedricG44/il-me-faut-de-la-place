@@ -1,3 +1,7 @@
 
 src/IHM/MainWindow_PROTO.java
 src/IHM/MainWindow_PROTO.form
+src/IHM/FenetrePrincipale/MainWindow_PROTO.java
+src/IHM/FenetrePrincipale/MainWindow_PROTO.form
+src/IHM/FenetreFiltres/FiltreWindow_PROTO.java
+src/IHM/FenetreFiltres/FiltreWindow_PROTO.form

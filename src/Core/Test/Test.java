@@ -1,4 +1,4 @@
-package IHM.Test;
+package Core.Test;
 
 import Core.Api;
 import Core.DirectoryNode;

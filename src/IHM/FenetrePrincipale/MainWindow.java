@@ -33,6 +33,8 @@ public class MainWindow extends JFrame {
 
         this.path = path;
         api = new Api(path);
+        
+        JSplitPane splitPane = new JSplitPane();;
 
         DefaultTreeModel treeModel = api.getModelTree();
         JTree tree = new JTree(treeModel);
@@ -40,6 +42,7 @@ public class MainWindow extends JFrame {
         tree.setCellRenderer(new TreeCellRenderer());
         JScrollPane scrollPanelTree = new JScrollPane(tree);
         scrollPanelTree.setViewportView(tree);
+        splitPane.setLeftComponent(scrollPanelTree);
 
         JTextField txtFieldPath = new JTextField(path);
         txtFieldPath.setFont(new Font("Tahoma", 0, 12));
@@ -124,6 +127,7 @@ public class MainWindow extends JFrame {
         table.setAutoCreateRowSorter(true);
         JScrollPane scrollPanelTable = new JScrollPane(table);
         scrollPanelTable.setViewportView(table);
+        splitPane.setRightComponent(scrollPanelTable);
         tree.addTreeSelectionListener(new TreeListener(tree, table));
 
         JButton btnDoublons = new JButton("Rechercher les doublons");
@@ -132,38 +136,33 @@ public class MainWindow extends JFrame {
         GroupLayout layout = new GroupLayout(this.getContentPane());
         this.getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnAnalyse, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnAnalyseFiltre, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE))
-                                .addComponent(scrollPanelTree, GroupLayout.PREFERRED_SIZE, 286, GroupLayout.PREFERRED_SIZE))
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAnalyse, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtFieldPath)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnDoublons, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE))
-                                .addComponent(scrollPanelTable, GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE))
-                        .addContainerGap())
+                        .addComponent(btnAnalyseFiltre, GroupLayout.PREFERRED_SIZE, 140, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtFieldPath)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDoublons, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(splitPane, GroupLayout.DEFAULT_SIZE, 1059, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnAnalyse, GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                                .addComponent(btnAnalyseFiltre, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtFieldPath)
-                                .addComponent(btnDoublons, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addComponent(scrollPanelTable, GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
-                                .addComponent(scrollPanelTree))
-                        .addContainerGap())
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAnalyse, GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(btnAnalyseFiltre, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtFieldPath)
+                    .addComponent(btnDoublons, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(splitPane, GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         this.pack();

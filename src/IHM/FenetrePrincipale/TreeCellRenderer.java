@@ -8,6 +8,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
 /**
+ * TreeCellRenderer de l'arbre
  *
  * @author Cédric GARCIA
  */
@@ -28,5 +29,4 @@ public class TreeCellRenderer extends DefaultTreeCellRenderer {
         }
         return this;
     }
-
 }

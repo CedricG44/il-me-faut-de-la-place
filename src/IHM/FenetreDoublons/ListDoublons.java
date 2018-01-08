@@ -15,18 +15,18 @@ public class ListDoublons implements Runnable {
     private HashMap<String, ArrayList<File>> doublons;
 
     public ListDoublons(Api api) {
-        
+
         this.api = api;
     }
-    
+
     @Override
     public void run() {
-        
+
         doublons = api.getDoublons();
     }
 
     public HashMap<String, ArrayList<File>> getDoublons() {
-        
+
         return doublons;
     }
 }

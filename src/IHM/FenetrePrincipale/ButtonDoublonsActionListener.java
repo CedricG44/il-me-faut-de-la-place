@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * ActionListener du bouton Recherche des doublons
  *
  * @author Cédric GARCIA
  */
@@ -14,14 +15,13 @@ public class ButtonDoublonsActionListener implements ActionListener {
     private Api api;
 
     public ButtonDoublonsActionListener(Api api) {
-        
+
         this.api = api;
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
         DoublonsWindow doublonsWindow = new DoublonsWindow(api);
     }
-    
 }

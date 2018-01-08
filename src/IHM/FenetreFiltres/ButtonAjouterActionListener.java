@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 /**
+ * ActionListener du bouton Ajouter
  *
- * @author Cédric
+ * @author Cédric GARCIA
  */
 public class ButtonAjouterActionListener implements ActionListener {
 
@@ -18,31 +19,36 @@ public class ButtonAjouterActionListener implements ActionListener {
     private ArrayList<FileFilter> filtres;
     private JButton btnSupprimer;
     private JButton btnToutSupprimer;
+    private JButton btnAnalyse;
 
     public ButtonAjouterActionListener(JTextField txtFieldExtension, DefaultListModel listModel, ArrayList<FileFilter> filtres,
-            JButton btnSupprimer, JButton btnToutSupprimer) {
-        
+            JButton btnSupprimer, JButton btnToutSupprimer, JButton btnAnalyse) {
+
         this.txtFieldExtension = txtFieldExtension;
         this.listModel = listModel;
         this.filtres = filtres;
+        this.btnSupprimer = btnSupprimer;
+        this.btnToutSupprimer = btnToutSupprimer;
+        this.btnAnalyse = btnAnalyse;
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
         String ext = txtFieldExtension.getText();
-        if((ext.startsWith(".")) && !listModel.contains(ext)) {
+        if ((ext.startsWith(".")) && !listModel.contains(ext)) {
             listModel.addElement(ext);
             filtres.add(new FileFilter() {
                 @Override
                 public boolean accept(File file) {
-                     
+
                     return file.getName().contains(ext);
                 }
             });
             txtFieldExtension.setText("");
             btnSupprimer.setEnabled(true);
             btnToutSupprimer.setEnabled(true);
+            btnAnalyse.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(null, "Veuillez entrer une autre extension.", "Extension invalide", JOptionPane.WARNING_MESSAGE);
         }

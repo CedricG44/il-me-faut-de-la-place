@@ -14,7 +14,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
- *
+ * TreeSelectionListener de l'arbre
+ * 
  * @author Cédric GARCIA
  */
 public class TreeListener implements TreeSelectionListener {

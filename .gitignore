@@ -7,3 +7,5 @@ src/IHM/FenetreFiltres/FiltreWindow_PROTO.java
 src/IHM/FenetreFiltres/FiltreWindow_PROTO.form
 src/IHM/FenetreDoublons/DoublonsWindow_PROTO.form
 src/IHM/FenetreDoublons/DoublonsWindow_PROTO.java
+src/IHM/FenetreDemarrage/StartWindow_PROTO.form
+src/IHM/FenetreDemarrage/StartWindow_PROTO.java
